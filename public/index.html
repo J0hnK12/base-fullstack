@@ -17,6 +17,12 @@
     $("button").click(function() {
         axios.post('/answer',{
             "tvShow":$("select[name='tvShow']").val()
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
         });
     });
 </script>
