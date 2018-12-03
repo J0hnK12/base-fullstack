@@ -1,8 +1,24 @@
 <html>
 <head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Hello there!</h1>
-    <button>Click here!</button>
+    <label for="tvShow">What is your favorite TV show?</label>
+    <select name="tvShow">
+        <option value="a">Whose Line is It Anyway?</option>
+        <option value="b">Family Feud</option>
+        <option value="c">The Simpsons</option>
+        <option value="d">It's Always Sunny</option>
+    </select>
+    <button>Submit Your Answer</button>
+<script>
+    $("button").click(function() {
+        axios.post('/answer',{
+            "tvShow":$("select[name='tvShow']").val()
+        });
+    });
+</script>
 </body>
 </html>
