@@ -12,7 +12,7 @@ app.get('/',(req, res) => {
 
 app.post('/answer',(req, res) => {
     res.send("Thank you for your answer!");
-    console.log(`IP address ${req.ip} voted for ${req.body.tvShow}`);    
+    console.log(`IP address ${req.ip} voted for ${req.body.events}`);    
 })
 
 app.listen(3000, () => {
