@@ -94,6 +94,10 @@
 <script>
     $("button").click(function() {
         axios.post('/answer',{
+            "firstNom":$("select[name='firstNom']").val(),
+            "lastNom":$("select[name='lastNom']").val(),
+            "SID":$("select[name='SID']").val(),
+            "grade":$("select[name='grade']").val(),
             "events":$("select[name='events']").val()
         })
         .then(function(response) {
