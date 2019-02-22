@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 let eventsData = []; //readfile;
-let eventList = eventseData.map(eventData => eventData.Event);
+let eventList = eventsData.map(eventData => eventData.Event);
 
 app.use(express.static('public'));
 app.use(express.json());
