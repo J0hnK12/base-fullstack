@@ -5,7 +5,7 @@ let eventsData = []; //readfile;
 let eventList = eventsData.map(eventsData => eventsData.Event);
 
 fs.readFile('db.json', (err, data) => {
-    videoGame = JSON.parse(data);
+    events = JSON.parse(data);
 });
 
 app.use(express.static('public'));
