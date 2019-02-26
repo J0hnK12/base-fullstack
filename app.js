@@ -1,12 +1,18 @@
 const express = require('express');
 const app = express();
 
-let eventsData = []; //readfile;
+//readfile;
+let eventsData = []; 
 let eventList = eventsData.map(eventsData => eventsData.Event);
+let firstNom = [];
+let lastNom = [];
+let SID = [];
+let grade = [];
 
-fs.readFile('db.json', (err, data) => {
-    events = JSON.parse(data);
+/* fs.readFile('db.json', (err, data) => {
+    eventsData = JSON.parse(data);
 });
+*/
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -17,13 +23,15 @@ app.get('/',(req, res) => {
 
 app.post('/answer',(req, res) => {
     res.send("Thank you for your answer!");
-    console.log(`IP address ${req.ip} voted for ${req.body.events}`); //Have the console save the first name, last name, student ID, grade, and event
-    events.push(req.body.events);
-    fs.writeFile('db.json', JSON.stringify(events), (err) => {
+    //Have the console save the first name, last name, student ID, grade, and event
+    console.log(`IP address ${req.ip} voted for ${req.body.eventsData}`); 
+    events.push(req.body.eventsData);
+    /*fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
         console.log(events);
         console.warn(err);
         console.log(db.json);
     });
+    */
     
 })
 
