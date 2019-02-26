@@ -35,8 +35,8 @@
     <label for="grade">What grade are you in?</label>
     <input>
     <br>
-    <label for="event">First Choice: What event do you want to participate in for class olympics?</label>
-    <select name="event">
+    <label for="event1">First Choice: What event do you want to participate in for class olympics?</label>
+    <select name="event1">
         <option value="a">3 on 3 Basketball</option>
         <option value="b">3 Point Shootout</option>
         <option value="c">Amazing Race</option>
@@ -92,8 +92,8 @@
         <option value="bc">Weightlifting</option>
     </select>
     <br>
-    <label for="event">Second Choice: What event do you want to participate in for class olympics?</label>
-    <select name="event">
+    <label for="event2">Second Choice: What event do you want to participate in for class olympics?</label>
+    <select name="event2">
         <option value="a">3 on 3 Basketball</option>
         <option value="b">3 Point Shootout</option>
         <option value="c">Amazing Race</option>
@@ -158,7 +158,8 @@
             "lastNom":$("select[name='lastNom']").val(),
             "SID":$("select[name='SID']").val(),
             "grade":$("select[name='grade']").val(),
-            "events":$("select[name='events']").val()
+            "event1":$("select[name='event1']").val(),
+            "event2":$("select[name='event2']").val()
         })
         .then(function(response) {
             console.log(response);
