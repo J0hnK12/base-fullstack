@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 
 //readfile;
-let eventsData = []; 
-let eventList = eventsData.map(eventsData => eventsData.Event);
+let eventsData1 = []; 
+let eventList1 = eventsData1.map(eventsData1 => eventsData1.Event);
+let eventsData2 = []; 
+let eventList2 = eventsData2.map(eventsData2 => eventsData2.Event);
 let firstNom = [];
 let lastNom = [];
 let SID = [];
