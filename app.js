@@ -27,7 +27,7 @@ app.post('/answer',(req, res) => {
     res.send("Thank you for your answer!");
     //Have the console save the first name, last name, student ID, grade, and event
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData}`); 
-    events.push(req.body.eventsData);
+    events.push(req.body.eventsData1);
     /*fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
         console.log(events);
         console.warn(err);
