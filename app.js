@@ -4,18 +4,22 @@ const app = express();
 
 //readfile;
 let eventsData1 = []; 
-let eventList1 = eventsData1.map(eventsData1 => eventsData1.Event);
+let eventList1 = []; //eventsData1.map(eventsData1 => eventsData1.Event);
 let eventsData2 = []; 
-let eventList2 = eventsData2.map(eventsData2 => eventsData2.Event);
+let eventList2 = []; //eventsData2.map(eventsData2 => eventsData2.Event);
 let firstNom = [];
 let lastNom = [];
 let SID = [];
 let grade = [];
 
 fs.readFile('db.json', (err, data) => {
-    eventsData = JSON.parse(data);
+    eventsData1 = JSON.parse(data);
+    eventsData2 = JSON.parse(data);
+    firstNom = JSON.parse(data);
+    lastNom = JSON.parse(data);
+    SID = JSON.parse(data);
+    grade = JSON.parse(data);
 });
-
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -40,7 +44,12 @@ app.post('/answer',(req, res) => {
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     events.push(req.body.grade);
     fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
-        console.log(events);
+        console.log(eventsData1);
+        console.log(eventsData2);
+        console.log(firstNom);
+        console.log(lastNom);
+        console.log(SID);
+        console.log(grade);
         console.warn(err);
         console.log(db.json);
     });
