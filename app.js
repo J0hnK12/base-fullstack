@@ -30,6 +30,14 @@ app.post('/answer',(req, res) => {
     events.push(req.body.eventsData1);
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData2}`); 
     events.push(req.body.eventsData2);
+    console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
+    firstNom.push(req.body.firstNom);
+    console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
+    events.push(req.body.lastNom);
+    console.log(`IP address ${req.ip} voted for ${req.body.SID}`); 
+    events.push(req.body.SID);
+    console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
+    events.push(req.body.grade);
     /*fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
         console.log(events);
         console.warn(err);
