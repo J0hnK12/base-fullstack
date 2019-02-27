@@ -43,12 +43,37 @@ app.post('/answer',(req, res) => {
     events.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     events.push(req.body.grade);
-    fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
+    fs.writeFile('db.json', JSON.stringify(eventsData1), (err) => {
         console.log(eventsData1);
+        console.warn(err);
+        console.log(db.json);
+    });
+    
+    fs.writeFile('db.json', JSON.stringify(eventsData2), (err) => {
         console.log(eventsData2);
+        console.warn(err);
+        console.log(db.json);
+    });
+    
+    fs.writeFile('db.json', JSON.stringify(firstNom), (err) => {
         console.log(firstNom);
+        console.warn(err);
+        console.log(db.json);
+    });
+    
+    fs.writeFile('db.json', JSON.stringify(lastNom), (err) => {
         console.log(lastNom);
+        console.warn(err);
+        console.log(db.json);
+    });
+    
+    fs.writeFile('db.json', JSON.stringify(SID), (err) => {
         console.log(SID);
+        console.warn(err);
+        console.log(db.json);
+    });
+    
+    fs.writeFile('db.json', JSON.stringify(grade), (err) => {
         console.log(grade);
         console.warn(err);
         console.log(db.json);
