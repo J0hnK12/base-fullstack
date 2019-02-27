@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
 
 //readfile;
@@ -11,10 +12,10 @@ let lastNom = [];
 let SID = [];
 let grade = [];
 
-/* fs.readFile('db.json', (err, data) => {
+fs.readFile('db.json', (err, data) => {
     eventsData = JSON.parse(data);
 });
-*/
+
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -38,12 +39,11 @@ app.post('/answer',(req, res) => {
     events.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     events.push(req.body.grade);
-    /*fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
+    fs.writeFile('db.json', JSON.stringify(eventsData), (err) => {
         console.log(events);
         console.warn(err);
         console.log(db.json);
     });
-    */
     
 })
 
