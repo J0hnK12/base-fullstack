@@ -32,17 +32,17 @@ app.post('/answer',(req, res) => {
     res.send("Thank you for your answer!");
     //Have the console save the first name, last name, student ID, grade, and event
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData1}`); 
-    events.push(req.body.eventsData1);
+    event1.push(req.body.eventsData1);
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData2}`); 
-    events.push(req.body.eventsData2);
+    event2.push(req.body.eventsData2);
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
     firstNom.push(req.body.firstNom);
     console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
-    events.push(req.body.lastNom);
+    lastNom.push(req.body.lastNom);
     console.log(`IP address ${req.ip} voted for ${req.body.SID}`); 
-    events.push(req.body.SID);
+    SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
-    events.push(req.body.grade);
+    grade.push(req.body.grade);
     fs.writeFile('db.json', JSON.stringify(eventsData1), (err) => {
         console.log(eventsData1);
         console.warn(err);
