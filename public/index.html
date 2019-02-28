@@ -1,5 +1,10 @@
+<!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
     <style>
         body {
             color: black;
@@ -7,35 +12,36 @@
             background-repeat: no-repeat;
             background-size: 100% 100%;
         }
-        
+
         h1 {
             text-align: center;
         }
-        
+
         button {
             display: block;
             margin: 0 auto;
         }
-        
+
     </style>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdn.muicss.com/mui-0.9.41/js/mui.min.js"></script>
 </head>
 <body>
-    <h1>Class Olympics Event Sign Ups</h1>
-    <label for="firstNom">What is your first name?</label>
+    <h1>Northview Class Olympics Registration</h1>
+    <label for="firstNom">First Name:</label>
     <input>
     <br>
-    <label for="lastNom">What is your last name?</label>
+    <label for="lastNom">Last Name:</label>
     <input>
     <br>
-    <label for="SID">What is your student ID number?</label>
+    <label for="SID">Student ID:</label>
     <input>
     <br>
-    <label for="grade">What grade are you in?</label>
+    <label for="grade">Current Grade:</label>
     <input>
     <br>
-    <label for="event1">First Choice: What event do you want to participate in for class olympics?</label>
+    <label for="event1">First Choice:</label>
     <select name="event1">
         <option value="a1">3 on 3 Basketball</option> <!-- 24 total, 6 per grade -->
         <option value="b1">3 Point Shootout</option> <!-- 20 total, 5 per grade -->
@@ -90,7 +96,7 @@
         <option value="az1">Weightlifting</option> <!-- 20 total, 5 per grade -->
     </select>
     <br>
-    <label for="event2">Second Choice: What event do you want to participate in for class olympics?</label>
+    <label for="event2">Second Choice:</label>
     <select name="event2">
         <option value="a2">3 on 3 Basketball</option> <!-- 24 total, 6 per grade -->
         <option value="b2">3 Point Shootout</option> <!-- 20 total, 5 per grade -->
@@ -146,7 +152,7 @@
     </select>
     <br>
     <br>
-    <button>Submit Answers</button>
+    <button class="mui-btn mui-btn--primary mui-btn--raised">Submit</button>
 <script>
     $("button").click(function() {
         axios.post('/answer',{
