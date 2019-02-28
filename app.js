@@ -37,7 +37,23 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.get('/',(req, res) => {
-    res.send('Hello!');
+    res.send(events);
+});
+
+app.get('/eventList1',(req, res) => {
+    res.send(events);
+});
+
+app.get('/eventList2',(req, res) => {
+    res.send(events);
+});
+
+app.get('/',(req, res) => {
+    res.send(students);
+});
+
+app.get('/',(req, res) => {
+    res.send(assignments);
 });
 
 app.post('/answer',(req, res) => {
