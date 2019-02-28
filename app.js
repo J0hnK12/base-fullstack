@@ -43,40 +43,31 @@ app.post('/answer',(req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
-    fs.writeFile('db.json', JSON.stringify(eventsData1), (err) => {
+    fs.writeFile('events.json', JSON.stringify(eventsData1), JSON.stringify(eventsData2) (err) => {
         console.log(eventsData1);
-        console.warn(err);
-        console.log(db.json);
-    });
-    
-    fs.writeFile('db.json', JSON.stringify(eventsData2), (err) => {
         console.log(eventsData2);
         console.warn(err);
-        console.log(db.json);
+        console.log(events.json);
     });
     
-    fs.writeFile('db.json', JSON.stringify(firstNom), (err) => {
+    fs.writeFile('students.json', JSON.stringify(firstNom), JSON.stringify(lastNom), JSON.stringify(SID), JSON.stringify(grade), (err) => {
         console.log(firstNom);
-        console.warn(err);
-        console.log(db.json);
-    });
-    
-    fs.writeFile('db.json', JSON.stringify(lastNom), (err) => {
         console.log(lastNom);
-        console.warn(err);
-        console.log(db.json);
-    });
-    
-    fs.writeFile('db.json', JSON.stringify(SID), (err) => {
         console.log(SID);
-        console.warn(err);
-        console.log(db.json);
-    });
-    
-    fs.writeFile('db.json', JSON.stringify(grade), (err) => {
         console.log(grade);
         console.warn(err);
-        console.log(db.json);
+        console.log(students.json);
+    });
+    
+    fs.writeFile('assignments.json', JSON.stringify(firstNom), JSON.stringify(lastNom), JSON.stringify(SID), JSON.stringify(grade), JSON.stringify(eventsData1), JSON.stringify(eventsData2), (err) => {
+        console.log(eventsData1);
+        console.log(eventsData2);
+        console.log(firstNom);
+        console.log(lastNom);
+        console.log(SID);
+        console.log(grade);
+        console.warn(err);
+        console.log(assignments.json);
     });
     
 })
