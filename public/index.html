@@ -4,8 +4,7 @@
   <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
-    <style>
+    <!--<style>
         body {
             color: black;
             background-image: url("https://timedotcom.files.wordpress.com/2018/02/winter-olympics-pyeongchang-2018.jpg");
@@ -22,10 +21,12 @@
             margin: 0 auto;
         }
 
-    </style>
+    </style>-->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdn.muicss.com/mui-0.9.41/js/mui.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1>Northview Class Olympics Registration</h1>
@@ -42,6 +43,16 @@
     <input>
     <br>
     <label for="event1">First Choice:</label>
+    <div class="btn-group">
+  <button class="btn dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="buttonMenu1">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
     <select name="event1">
         <option value="a1">3 on 3 Basketball</option> <!-- 24 total, 6 per grade -->
         <option value="b1">3 Point Shootout</option> <!-- 20 total, 5 per grade -->
@@ -152,7 +163,7 @@
     </select>
     <br>
     <br>
-    <button class="mui-btn mui-btn--primary mui-btn--raised">Submit</button>
+    <button type="button" class="btn btn-raised btn-primary">Submit</button>
 <script>
     $("button").click(function() {
         axios.post('/answer',{
