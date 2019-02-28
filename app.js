@@ -12,13 +12,25 @@ let lastNom = [];
 let SID = [];
 let grade = [];
 
-fs.readFile('db.json', (err, data) => {
+fs.readFile('events.json', (err, data) => {
     eventsData1 = JSON.parse(data);
     eventsData2 = JSON.parse(data);
+});
+
+fs.readFile('students.json', (err, data) => {
     firstNom = JSON.parse(data);
     lastNom = JSON.parse(data);
     SID = JSON.parse(data);
     grade = JSON.parse(data);
+});
+
+fs.readFile('assignments.json', (err, data) => {
+    firstNom = JSON.parse(data);
+    lastNom = JSON.parse(data);
+    SID = JSON.parse(data);
+    grade = JSON.parse(data);
+    eventsData1 = JSON.parse(data);
+    eventsData2 = JSON.parse(data);
 });
 
 app.use(express.static('public'));
