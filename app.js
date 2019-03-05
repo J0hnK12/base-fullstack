@@ -24,21 +24,8 @@ fs.readFile('students.json', (err, data) => {
     grade = JSON.parse(data);
 });
 
-fs.readFile('assignments.json', (err, data) => {
-    firstNom = JSON.parse(data);
-    lastNom = JSON.parse(data);
-    SID = JSON.parse(data);
-    grade = JSON.parse(data);
-    eventsData1 = JSON.parse(data);
-    eventsData2 = JSON.parse(data);
-});
-
 app.use(express.static('public'));
 app.use(express.json());
-
-app.get('/',(req, res) => {
-    res.send(events);
-});
 
 app.get('/eventList1',(req, res) => {
     res.send(events);
@@ -48,15 +35,7 @@ app.get('/eventList2',(req, res) => {
     res.send(events);
 });
 
-app.get('/',(req, res) => {
-    res.send(students);
-});
-
-app.get('/',(req, res) => {
-    res.send(assignments);
-});
-
-app.post('/answer',(req, res) => {
+app.post('/signUp',(req, res) => {
     res.send("Thank you for your answer!");
     //Have the console save the first name, last name, student ID, grade, and event
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData1}`); 
@@ -71,6 +50,7 @@ app.post('/answer',(req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
+    // if (event==full) { alert: event is already full}
     fs.writeFile('events.json', JSON.stringify(eventsData1), JSON.stringify(eventsData2) (err) => {
         console.log(eventsData1);
         console.log(eventsData2);
@@ -85,17 +65,6 @@ app.post('/answer',(req, res) => {
         console.log(grade);
         console.warn(err);
         console.log(students.json);
-    });
-    
-    fs.writeFile('assignments.json', JSON.stringify(firstNom), JSON.stringify(lastNom), JSON.stringify(SID), JSON.stringify(grade), JSON.stringify(eventsData1), JSON.stringify(eventsData2), (err) => {
-        console.log(eventsData1);
-        console.log(eventsData2);
-        console.log(firstNom);
-        console.log(lastNom);
-        console.log(SID);
-        console.log(grade);
-        console.warn(err);
-        console.log(assignments.json);
     });
     
 })
