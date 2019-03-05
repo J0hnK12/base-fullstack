@@ -136,7 +136,7 @@
     <button>Submit Answers</button>
 <script>
     $("button").click(function() {
-        axios.post('/answer',{
+        axios.post('/signUp',{
             "firstNom":$("select[name='firstNom']").val(),
             "lastNom":$("select[name='lastNom']").val(),
             "SID":$("select[name='SID']").val(),
