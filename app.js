@@ -3,18 +3,15 @@ const fs = require('fs');
 const app = express();
 
 //readfile;
-let eventsData1 = []; 
-let eventList1 = []; //eventsData1.map(eventsData1 => eventsData1.Event);
-let eventsData2 = []; 
-let eventList2 = []; //eventsData2.map(eventsData2 => eventsData2.Event);
+let eventsData = []; 
+let eventList = []; //eventsData1.map(eventsData1 => eventsData1.Event);
 let firstNom = [];
 let lastNom = [];
 let SID = [];
 let grade = [];
 
 fs.readFile('events.json', (err, data) => {
-    eventsData1 = JSON.parse(data);
-    eventsData2 = JSON.parse(data);
+    eventsData = JSON.parse(data);
 });
 
 fs.readFile('students.json', (err, data) => {
@@ -27,11 +24,7 @@ fs.readFile('students.json', (err, data) => {
 app.use(express.static('public'));
 app.use(express.json());
 
-app.get('/eventList1',(req, res) => {
-    res.send(events);
-});
-
-app.get('/eventList2',(req, res) => {
+app.get('/eventList',(req, res) => {
     res.send(events);
 });
 
@@ -39,9 +32,7 @@ app.post('/signUp',(req, res) => {
     res.send("Thank you for your answer!");
     //Have the console save the first name, last name, student ID, grade, and event
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData1}`); 
-    event1.push(req.body.eventsData1);
-    console.log(`IP address ${req.ip} voted for ${req.body.eventsData2}`); 
-    event2.push(req.body.eventsData2);
+    event.push(req.body.eventsData1);
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
     firstNom.push(req.body.firstNom);
     console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
@@ -50,10 +41,9 @@ app.post('/signUp',(req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
-    // if (event==full) { alert: event is already full}
-    fs.writeFile('events.json', JSON.stringify(eventsData1), JSON.stringify(eventsData2) (err) => {
+    // if (event1==full) { alert: event is already full}
+    fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
         console.log(eventsData1);
-        console.log(eventsData2);
         console.warn(err);
         console.log(events.json);
     });
