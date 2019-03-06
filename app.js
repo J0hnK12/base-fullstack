@@ -43,7 +43,7 @@ app.post('/signUp',(req, res) => {
     grade.push(req.body.grade);
     // if (event1==full) { alert: event is already full}
     fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
-        console.log(eventsData1);
+        console.log(eventsData);
         console.warn(err);
         console.log(events.json);
     });
