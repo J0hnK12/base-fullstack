@@ -4,7 +4,7 @@ const app = express();
 
 //readfile;
 let eventsData = []; 
-let eventList = []; //eventsData1.map(eventsData1 => eventsData1.Event);
+let eventList = []; //eventsData.map(eventsData => eventsData.Event);
 let firstNom = [];
 let lastNom = [];
 let SID = [];
