@@ -41,7 +41,12 @@ app.post('/signUp',(req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
-    // if (event1==full) { alert: event is already full}
+    
+    /* if (event1==full) { 
+        alert: event is already full
+    }
+    */
+    
     fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
         console.log(eventsData);
         console.warn(err);
