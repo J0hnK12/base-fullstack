@@ -77,6 +77,8 @@
         <option value="az1">Weightlifting</option>
     </select>
     <br>
+    <button>Submit Answers</button>
+    <br>
     <label for="event2">Second Choice: What event do you want to participate in for class olympics?</label>
     <select name="event2">
         <option value="a2">3 on 3 Basketball</option>
@@ -136,7 +138,7 @@
     <button>Submit Answers</button>
 <script>
     $("button").click(function() {
-        axios.post('/signUp',{
+        axios.post('/signUp', {
             "firstNom":$("select[name='firstNom']").val(),
             "lastNom":$("select[name='lastNom']").val(),
             "SID":$("select[name='SID']").val(),
