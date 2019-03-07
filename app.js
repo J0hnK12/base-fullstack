@@ -29,7 +29,7 @@ app.get('/eventList', (req, res) => {
 });
 
 app.post('/signUp', (req, res) => {
-    res.send("Thank you for your answer!");
+    res.send("Thank you for signing up!");
     //Have the console save the first name, last name, student ID, grade, and event
     console.log(`IP address ${req.ip} voted for ${req.body.eventsData}`); 
     event.push(req.body.eventsData);
