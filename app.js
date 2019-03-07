@@ -42,8 +42,8 @@ app.post('/signUp', (req, res) => {
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
     
-    /* if (event1==full) { 
-        alert: event is already full
+    /* if (event==full) { 
+        alert: "sorry, this event is already full, please select another one"
     }
     */
     
