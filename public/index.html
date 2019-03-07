@@ -76,7 +76,8 @@
         <option value="ay1">Volleyball</option>
     </select>
     <br>
-    <button>Submit Answers</button>
+    <button name="1">Submit Answers</button>
+    <br>
     <br>
     <label for="event2">Second Choice: What event do you want to participate in for class olympics?</label>
     <select name="event2">
@@ -133,15 +134,30 @@
     </select>
     <br>
     <br>
-    <button>Submit Answers</button>
+    <button name="2">Submit Answers</button>
 <script>
-    $("button").click(function() {
+    $("button#1").click(function() {
         axios.post('/signUp', {
             "firstNom":$("select[name='firstNom']").val(),
             "lastNom":$("select[name='lastNom']").val(),
             "SID":$("select[name='SID']").val(),
             "grade":$("select[name='grade']").val(),
-            "event1":$("select[name='event1']").val(),
+            "event1":$("select[name='event1']").val()
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+    
+    $("button#2").click(function() {
+        axios.post('/signUp', {
+            "firstNom":$("select[name='firstNom']").val(),
+            "lastNom":$("select[name='lastNom']").val(),
+            "SID":$("select[name='SID']").val(),
+            "grade":$("select[name='grade']").val(),
             "event2":$("select[name='event2']").val()
         })
         .then(function(response) {
