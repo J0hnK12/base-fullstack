@@ -28,11 +28,10 @@ app.get('/eventList', (req, res) => {
     res.send(events);
 });
 
-app.post('/signUp', (req, res) => {
-    res.send("Thank you for signing up!");
+app.post('/signUp1', (req, res) => {
     //Have the console save the first name, last name, student ID, grade, and event
-    console.log(`IP address ${req.ip} voted for ${req.body.eventsData}`); 
-    event.push(req.body.eventsData);
+    console.log(`IP address ${req.ip} voted for ${req.body.events1}`); 
+    event1.push(req.body.event1);
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
     firstNom.push(req.body.firstNom);
     console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
@@ -42,10 +41,24 @@ app.post('/signUp', (req, res) => {
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
     
-    /* if (threeOnThreeBasketball==spots) { 
-        alert: "sorry, this event is already full, please select another one"
-    }
+    /* for (let i = 0; i < response.eventsData.length; i++) {
+            $("threeOnThreeBasketball").append( $("spots").text(response.eventsData[i]) );
+        }
     */
+    });
+         
+    app.post('/signUp2', (req, res) => {
+    //Have the console save the first name, last name, student ID, grade, and event
+    console.log(`IP address ${req.ip} voted for ${req.body.events2}`); 
+    event2.push(req.body.event2);
+    console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
+    firstNom.push(req.body.firstNom);
+    console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
+    lastNom.push(req.body.lastNom);
+    console.log(`IP address ${req.ip} voted for ${req.body.SID}`); 
+    SID.push(req.body.SID);
+    console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
+    grade.push(req.body.grade);
     
     fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
         console.log(eventsData);
