@@ -59,7 +59,6 @@ app.post('/signUp1', (req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
-    
     fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
         console.log(eventsData);
         console.warn(err);
