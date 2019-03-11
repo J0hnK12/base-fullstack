@@ -43,7 +43,7 @@ app.post('/signUp1', (req, res) => {
     
     /* for (let i = 0; i < response.eventsData.length; i++) {
             $("threeOnThreeBasketball").append( $("spots").text(response.eventsData[i]) );
-        }
+       }
     */
     });
          
@@ -59,13 +59,15 @@ app.post('/signUp1', (req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
-    fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
+})
+
+fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
         console.log(eventsData);
         console.warn(err);
         console.log(events.json);
     });
     
-    fs.writeFile('students.json', JSON.stringify(firstNom), JSON.stringify(lastNom), JSON.stringify(SID), JSON.stringify(grade), (err) => {
+fs.writeFile('students.json', JSON.stringify(firstNom), JSON.stringify(lastNom), JSON.stringify(SID), JSON.stringify(grade), (err) => {
         console.log(firstNom);
         console.log(lastNom);
         console.log(SID);
@@ -73,8 +75,6 @@ app.post('/signUp1', (req, res) => {
         console.warn(err);
         console.log(students.json);
     });
-    
-})
 
 app.listen(3000, () => {
     console.log('Server started...');
