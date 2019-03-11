@@ -59,6 +59,11 @@ app.post('/signUp1', (req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
+        
+    /* for (let i = 0; i < response.eventsData.length; i++) {
+            $("threeOnThreeBasketball").append( $("spots").text(response.eventsData[i]) );
+       }
+    */
 })
 
 fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
