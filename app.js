@@ -29,7 +29,7 @@ app.get('/eventList', (req, res) => {
 });
 
 app.post('/signUp1', (req, res) => {
-    //Have the console save the first name, last name, student ID, grade, and event
+    //Have the console save the first name, last name, student ID, grade, and the first event
     console.log(`IP address ${req.ip} voted for ${req.body.event1}`); 
     event1.push(req.body.event1);
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
@@ -48,7 +48,7 @@ app.post('/signUp1', (req, res) => {
     });
          
     app.post('/signUp2', (req, res) => {
-    //Have the console save the first name, last name, student ID, grade, and event
+    //Have the console save the first name, last name, student ID, grade, and the second event
     console.log(`IP address ${req.ip} voted for ${req.body.event2}`); 
     event2.push(req.body.event2);
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
