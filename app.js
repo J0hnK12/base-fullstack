@@ -90,8 +90,8 @@ app.post('/signUp2', (req, res) => {
     grade.push(req.body.grade);
 })
 
-fs.writeFile('events.json', JSON.stringify(eventsData), (err) => {
-        console.log(eventsData);
+fs.writeFile('events.json', JSON.stringify(events), (err) => {
+        console.log(events);
         console.warn(err);
         console.log(events.json);
 });
