@@ -16,11 +16,11 @@ fs.readFile('events.json', async (err, data) => {
     ))
 });
 
-fs.readFile('students.json', (err, data) => {
-    firstNom = JSON.parse(data);
-    lastNom = JSON.parse(data);
-    SID = JSON.parse(data);
-    grade = JSON.parse(data);
+fs.readFile('students.json', async (err, data) => {
+    students = await JSON.parse(data);
+    students.find(student =>
+        student.SID == req.body
+    ))
 });
 
 app.use(express.static('public'));
