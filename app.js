@@ -10,17 +10,11 @@ let SID = [];
 let grade = [];
 
 fs.readFile('events.json', async (err, data) => {
-    events = await JSON.parse(data);
-    console.log(events.find(event =>
-        event['Event'] == "3 on 3 Basketball"
-    ))
+    events = await JSON.parse(data); 
 });
 
 fs.readFile('students.json', async (err, data) => {
     students = await JSON.parse(data);
-    students.find(student =>
-        student.SID == req.body
-    ))
 });
 
 app.use(express.static('public'));
@@ -34,6 +28,26 @@ app.post('/signUp1', (req, res) => {
     //Have the console save the first name, last name, student ID, grade, and the first event
     console.log(`IP address ${req.ip} voted for ${req.body.event1}`); 
     event1.push(req.body.event1);
+    
+    let event = events.find(event =>
+        event['Event'] == req.body.event1;
+    )
+    
+    let student = students.find(student =>
+        student.grade == req.body.grade;
+    )
+    
+    let spotsLeft = events.spots[student.grade];
+    
+    if (spotsLeft > 0) {
+        student.Event = req.body.event1;
+        res.send("Congratulations, you have signed up for this event!");
+    }
+    
+    else {
+        res.status(401).send("Sorry, the event that you signed up for is full.");
+    }
+    
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
     firstNom.push(req.body.firstNom);
     console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
@@ -48,6 +62,26 @@ app.post('/signUp2', (req, res) => {
     //Have the console save the first name, last name, student ID, grade, and the second event
     console.log(`IP address ${req.ip} voted for ${req.body.event2}`); 
     event2.push(req.body.event2);
+    
+    let event = events.find(event =>
+        event['Event'] == req.body.event1;
+    )
+    
+    let student = students.find(student =>
+        student.grade == req.body.grade;
+    )
+    
+    let spotsLeft = events.spots[student.grade];
+    
+    if (spotsLeft > 0) {
+        student.Event = req.body.event1;
+        res.send("Congratulations, you have signed up for this event!");
+    }
+    
+    else {
+        res.status(401).send("Sorry, the event that you signed up for is full.");
+    }
+    
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
     firstNom.push(req.body.firstNom);
     console.log(`IP address ${req.ip} voted for ${req.body.lastNom}`); 
