@@ -62,7 +62,7 @@ app.post('/signUp2', (req, res) => {
     event2.push(req.body.event2);
     
     let event = events.find(event =>
-        event['Event'] == req.body.event1;
+        event['Event'] == req.body.event2;
     )
     
     let student = students.find(student =>
@@ -72,7 +72,7 @@ app.post('/signUp2', (req, res) => {
     let spotsLeft = events.spots[student.grade];
     
     if (spotsLeft > 0) {
-        student.Event = req.body.event1;
+        student.Event = req.body.event2;
         res.send("Congratulations, you have signed up for this event!");
     }
     
