@@ -29,7 +29,7 @@ app.post('/signUp1', (req, res) => {
     event1.push(req.body.event1);
     
     let event = events.find(event =>
-        event['Event'] == req.body.event1;
+        event['Event'] == req.body.event1; //fix error
     )
     
     let student = students.find(student =>
@@ -63,7 +63,7 @@ app.post('/signUp2', (req, res) => {
     event2.push(req.body.event2);
     
     let event = events.find(event =>
-        event['Event'] == req.body.event2;
+        event['Event'] == req.body.event2; //fix error
     )
     
     let student = students.find(student =>
