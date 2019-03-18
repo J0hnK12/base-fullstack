@@ -45,7 +45,7 @@ app.post('/signUp1', (req, res) => {
     }
     
     else {
-        res.status(401).send("Sorry, the event that you signed up for is full.");
+        res.status(401).send("Sorry, the event that you signed up for is full. Try signing up again, but use your second choice.");
     }
     
     console.log(`IP address ${req.ip} voted for ${req.body.firstNom}`); 
