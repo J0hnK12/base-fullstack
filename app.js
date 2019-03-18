@@ -41,6 +41,7 @@ app.post('/signUp1', (req, res) => {
     if (spotsLeft > 0) {
         student.Event = req.body.event1;
         res.send("Congratulations, you have signed up for this event!");
+        event1.push(req.body.event1);
     }
     
     else {
@@ -74,6 +75,7 @@ app.post('/signUp2', (req, res) => {
     if (spotsLeft > 0) {
         student.Event = req.body.event2;
         res.send("Congratulations, you have signed up for this event!");
+        event2.push(req.body.event2);
     }
     
     else {
