@@ -3,7 +3,8 @@ const fs = require('fs');
 const app = express();
 
 //readfile;
-let events = []; 
+let events = [];
+let students = [];
 let firstNom = [];
 let lastNom = [];
 let SID = [];
@@ -29,11 +30,11 @@ app.post('/signUp1', (req, res) => {
     event1.push(req.body.event1);
     
     let event = events.find(event =>
-        event['Event'] == req.body.event1; //fix error
-    )
+        event['Event'] == req.body.event1
+    );
     
     let student = students.find(student =>
-        student.grade == req.body.grade;
+        student.grade == req.body.grade
     )
     
     let spotsLeft = events.spots[student.grade];
@@ -41,7 +42,11 @@ app.post('/signUp1', (req, res) => {
     if (spotsLeft > 0) {
         student.Event = req.body.event1;
         res.send("Congratulations, you have signed up for this event!");
-        event1.push(req.body.event1);
+        fs.writeFile('events.json', JSON.stringify(events), (err) => {
+            console.log(events);
+            console.warn(err);
+            console.log(events.json);
+        });
     }
     
     else {
@@ -54,8 +59,17 @@ app.post('/signUp1', (req, res) => {
     lastNom.push(req.body.lastNom);
     console.log(`IP address ${req.ip} voted for ${req.body.SID}`); 
     SID.push(req.body.SID);
-    console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
+    console.log(`IP address ${req.ip} voted for ${req.body.grade}`);
     grade.push(req.body.grade);
+    
+    fs.writeFile('students.json', JSON.stringify(students), (err) => {
+        console.log(firstNom);
+        console.log(lastNom);
+        console.log(SID);
+        console.log(grade);
+        console.warn(err);
+        console.log(students.json);
+    });
 });
          
 app.post('/signUp2', (req, res) => {
@@ -63,11 +77,11 @@ app.post('/signUp2', (req, res) => {
     event2.push(req.body.event2);
     
     let event = events.find(event =>
-        event['Event'] == req.body.event2; //fix error
+        event['Event'] == req.body.event2
     )
     
     let student = students.find(student =>
-        student.grade == req.body.grade;
+        student.grade == req.body.grade
     )
     
     let spotsLeft = events.spots[student.grade];
@@ -76,6 +90,12 @@ app.post('/signUp2', (req, res) => {
         student.Event = req.body.event2;
         res.send("Congratulations, you have signed up for this event!");
         event2.push(req.body.event2);
+        
+        fs.writeFile('events.json', JSON.stringify(events), (err) => {
+            console.log(events);
+            console.warn(err);
+            console.log(events.json);
+        });
     }
     
     else {
@@ -90,22 +110,16 @@ app.post('/signUp2', (req, res) => {
     SID.push(req.body.SID);
     console.log(`IP address ${req.ip} voted for ${req.body.grade}`); 
     grade.push(req.body.grade);
-})
-
-fs.writeFile('events.json', JSON.stringify(events), (err) => {
-        console.log(events);
-        console.warn(err);
-        console.log(events.json);
-});
     
-fs.writeFile('students.json', JSON.stringify(firstNom), JSON.stringify(lastNom), JSON.stringify(SID), JSON.stringify(grade), (err) => {
+    fs.writeFile('students.json', JSON.stringify(students), (err) => {
         console.log(firstNom);
         console.log(lastNom);
         console.log(SID);
         console.log(grade);
         console.warn(err);
         console.log(students.json);
-});
+    });
+})
 
 app.listen(3000, () => {
     console.log('Server started...');
